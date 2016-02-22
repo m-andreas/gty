@@ -38,9 +38,11 @@ gem 'devise'
 gem 'foundation-rails'
 
 group :test do
-  gem 'cucumber-rails', :require => false
-  # database_cleaner is not required, but highly recommended
+  gem 'cucumber-rails'
+  gem 'capybara'
   gem 'database_cleaner'
+  gem 'faker'
+  gem 'factory_girl'
 end
 
 group :development do
@@ -50,6 +52,7 @@ end
 
 
 group :development, :test do
+  gem 'rspec-rails', '~> 3.0'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
 
