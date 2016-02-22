@@ -1,18 +1,67 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <title>Gty</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
-<nav>
-  <% if user_signed_in? %>
-    <%= link_to "Create Team", new_team_path%>
-  <% end %>
-</nav>
-<%= yield %>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-</body>
+    <title><%= content_for?(:title) ? yield(:title) : "Untitled" %></title>
+
+    <%= stylesheet_link_tag    "application" %>
+    <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+  </head>
+
+  <body>
+      <nav>
+      <div class="title-bar" data-responsive-toggle="example-menu" data-hide-for="medium">
+        <button class="menu-icon" type="button" data-toggle></button>
+        <div class="title-bar-title">Menu</div>
+      </div>
+
+      <div class="top-bar" id="example-menu">
+        <div class="top-bar-left">
+<ul class="vertical menu" data-responsive-menu="drilldown medium-dropdown" style="width: 300px;">
+        <li>
+          <a href="#">Verwaltung</a>
+          <ul class="vertical menu">
+            <li>
+              <a href="#">Team</a>
+              <ul class="vertical menu">
+                <li><a href="#">Create Team</a></li>
+                <li><a href="#">Item 1B</a></li>
+                <li><a href="#">Item 1C</a></li>
+                <li><a href="#">Item 1D</a></li>
+                <li><a href="#">Item 1E</a></li>
+              </ul>
+            </li>
+            <li><a href="#">Item 1B</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="#">Item 2</a>
+          <ul class="vertical menu">
+            <li><a href="#">Item 2A</a></li>
+            <li><a href="#">Item 2B</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="#">Item 3</a>
+          <ul class="vertical menu">
+            <li><a href="#">Item 3A</a></li>
+            <li><a href="#">Item 3B</a></li>
+          </ul>
+        </li>
+      </ul>
+        </div>
+        <div class="top-bar-right">
+          <ul class="menu">
+            <li><input type="search" placeholder="Search"></li>
+            <li><button type="button" class="button">Search</button></li>
+          </ul>
+        </div>
+      </div>
+      </nav>
+    <%= yield %>
+
+  </body>
 </html>
