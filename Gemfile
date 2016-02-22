@@ -44,7 +44,7 @@ group :test do
   gem 'capybara'
   gem 'database_cleaner'
   gem 'faker'
-  gem 'factory_girl'
+  gem "factory_girl_rails", "~> 4.0"
   gem 'launchy'
 end
 

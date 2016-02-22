@@ -1,12 +1,9 @@
-Given(/^I am a logged in user$/) do
-  email = 'testing@man.net'
-  password = 'secretpass'
-  User.new(:email => email, :password => password, :password_confirmation => password).save!
+include Warden::Test::Helpers
+Warden.test_mode!
 
-  visit '/users/sign_in'
-  fill_in "user_email", :with => email
-  fill_in "user_password", :with => password
-  click_button "Log in"
+Given(/^I am a logged in user$/) do
+  user = FactoryGirl.create(:user)
+  login_as(user, :scope => :user)
 end
 
 Given(/^I follow "([^"]*)"$/) do |link_name|
