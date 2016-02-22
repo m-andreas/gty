@@ -10,17 +10,21 @@ Given(/^I am a logged in user$/) do
 end
 
 Given(/^I follow "([^"]*)"$/) do |link_name|
-  pending # Write code here that turns the phrase above into concrete actions
+  click_link("#{link_name}")
 end
 
 When(/^I fill in "([^"]*)" with "([^"]*)"$/) do |field, value|
-  pending # Write code here that turns the phrase above into concrete actions
+  fill_in("#{field}", :with => "#{value}")
 end
 
 When(/^I press "([^"]*)"$/) do |button_name|
-  pending # Write code here that turns the phrase above into concrete actions
+  click_button("#{button_name}")
 end
 
 Then(/^I should see "([^"]*)"$/) do |content|
-  pending # Write code here that turns the phrase above into concrete actions
+  expect(page).to have_content "#{content}"
+end
+
+Then /^show me the page$/ do
+  save_and_open_page
 end

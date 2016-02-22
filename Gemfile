@@ -37,12 +37,15 @@ gem 'devise'
 # Using foundation for the layout
 gem 'foundation-rails'
 
+gem 'simple_form'
+
 group :test do
   gem 'cucumber-rails'
   gem 'capybara'
   gem 'database_cleaner'
   gem 'faker'
   gem 'factory_girl'
+  gem 'launchy'
 end
 
 group :development do

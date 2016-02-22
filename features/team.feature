@@ -5,8 +5,8 @@ Feature: Team
     Scenario: Create a team
         Given I am on the home page
         And I am a logged in user
-        And I follow "Join/Create Team"
-        When I fill in "Teamname" with "AFC Vienna Knights"
-        And I press "Publish"
+        And I follow "Create Team"
+        When I fill in "Name" with "AFC Vienna Knights"
+        And I press "Create Team"
         Then I should see "Team created"
         And I should see "AFC Vienna Knights"
