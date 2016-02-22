@@ -8,7 +8,9 @@
 </head>
 <body>
 <nav>
-  <%= link_to "Create Team", new_team_path%>
+  <% if user_signed_in? %>
+    <%= link_to "Create Team", new_team_path%>
+  <% end %>
 </nav>
 <%= yield %>
 
