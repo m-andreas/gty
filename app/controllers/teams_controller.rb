@@ -1,5 +1,5 @@
 class TeamsController < ApplicationController
-  before_action :find_team, only: [:show]
+  before_action :find_team, only: [:show, :apply]
 
   def new
     @team = Team.new
@@ -17,6 +17,18 @@ class TeamsController < ApplicationController
   end
 
   def show
+  end
+
+  def join
+    @teams = Team.all
+    @membership = Membership.new
+  end
+
+  def apply
+    user = current_user
+    unless user.teams.include? @team
+      user.teams << team
+    end
   end
 
   private

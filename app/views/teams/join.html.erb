@@ -1,0 +1,5 @@
+<%= simple_form_for @membership do |f| %>
+  <%= f.input :team, collection: @teams.collect{ |t| t.name } %>
+
+  <%= f.button :submit, "Join Team" %>
+<% end %>

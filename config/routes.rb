@@ -6,7 +6,13 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'games#index'
 
+  get '/teams/join', to: 'teams#join', as: 'join_team'
+  get '/teams/apply', to: 'teams#apply', as: 'apply_team'
   resources :teams
+
+  get '/memberships/show', to: 'memberships#show', as: 'show_memberships'
+  resources :memberships
+
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
